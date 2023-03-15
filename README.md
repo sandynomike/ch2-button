@@ -1,6 +1,6 @@
 # Blue Pill Challenge 2: Button
 
-This project contains the code required to test for a button press and turn ON the built-in LED on the Blue Pill if the button is pressed and turn it off when the button is released.
+This project contains the code required to test for a button press and turn ON the built-in LED on the Blue Pill if the button is pressed and turn it OFF when the button is released.
 
 <br>
 Hardware Requirements and Wiring<br>
