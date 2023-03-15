@@ -13,8 +13,8 @@ options.
 <br>
 Running make will compile and attempt to upload the program to the Blue Pill. Of course the resulting .elf
 file can be uploaded manually later.<br>
+<br>
 Software Requirements:<br>
-<hr>
 Editor of your choice<br>
 arm-none-eabi-gcc toolchain<br>
 make<br>
