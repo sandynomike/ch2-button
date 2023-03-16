@@ -28,7 +28,7 @@ $(TARGET).elf: $(SOURCE).o $(STARTUP).o STM32F103C8TX_FLASH.ld
 	-Wl,-Map=$(TARGET).map -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb \
 	-Wl,--start-group -lc -lm -Wl,--end-group
 	arm-none-eabi-size $(TARGET).elf
-	$(FLASHER) -c port=$(FLASHPORT) -w $(TARGET).elf --start 0x08000000
+	$(FLASHER) -c port=$(FLASHPORT) -w $(TARGET).elf --start
 
 
 $(STARTUP).o: $(STARTUP).s

@@ -6,11 +6,11 @@
 //
 //  Hardware Setup:
 //  ===============
-//  Install a button (tactile switch) between pin A4 and ground.
+//  Install a button (tactile switch) between pin A12 and ground.
 
 //  Software Setup:
 //  ===============
-//  1. Set up GPIO PORT A, Pin A4 as input with internal pullup resistor.
+//  1. Set up GPIO PORT A, Pin A12 as input with internal pullup resistor.
 //     Enable IO Port A in the RCC APB2ENR register.
 //     Set the configuration and mode of pin A4 as input with internal pullup resistor.
 //  2. Set up GPIO PORT C, Pin C13 (LED built-into Blue Pill) as an output, push-pull, 2 Mhz.
@@ -27,13 +27,13 @@ main( void )
 
     // Set up pin A4 as input with internal pullup resistor
     // CNF4[1:0] = 0b10 (Input with pullup/pulldown)
-    GPIOA->CRL &= ~GPIO_CRL_CNF4_Msk;        // Clear CNF bits
-    GPIOA->CRL |= GPIO_CRL_CNF4_1;           // Set 1-bit
+    GPIOA->CRH &= ~GPIO_CRH_CNF12_Msk;        // Clear CNF bits
+    GPIOA->CRH |= GPIO_CRH_CNF12_1;           // Set 1-bit
 
     // MODE4[1:0] = 0b00 (Input Mode -- This is the default state, so no settings needed)
 
     // Set pullup by setting ODR4 to 1
-    GPIOA->ODR |= GPIO_ODR_ODR4;
+    GPIOA->ODR |= GPIO_ODR_ODR12;
 
     // Set up pin C13 as an output with push-pull, 2 MHz max speed.
     // CNF13[1:0] = 0b00 (General purpose output, push-pull)
@@ -46,11 +46,11 @@ main( void )
 
     while( 1 )                                // Endless loop to flash LED
     {
-        // Test Pin A4 for a 1. Will be zero if the button is pressed and the pullup resistor
+        // Test Pin A12 for a 1. Will be zero if the button is pressed and the pullup resistor
         // is grounded.
         // Note that on the Blue Pill, setting pin C13 to a 0 will turn the built-in LED ON and
         // setting pin C13 to a 1 will turn it OFF (for some reason!)
-        if( !(GPIOA->IDR & GPIO_IDR_IDR4) )   // If button pressed,
+        if( !(GPIOA->IDR & GPIO_IDR_IDR12) )   // If button pressed,
           GPIOC->ODR &= ~GPIO_ODR_ODR13;      // then turn ON LED by making pin low,
         else                                  // otherwise
           GPIOC->ODR |= GPIO_ODR_ODR13;       // turn OFF LED by making pin high.
