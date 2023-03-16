@@ -46,7 +46,7 @@ main( void )
 
     while( 1 )                                // Endless loop to flash LED
     {
-        // Test Pin A12 for a 1. Will be zero if the button is pressed and the pullup resistor
+        // Test Pin A12 for a 0. Will be 0 if the button is pressed and the pullup resistor
         // is grounded.
         // Note that on the Blue Pill, setting pin C13 to a 0 will turn the built-in LED ON and
         // setting pin C13 to a 1 will turn it OFF (for some reason!)
