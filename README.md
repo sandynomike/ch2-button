@@ -4,7 +4,7 @@ This project contains the code required to test for a button press and turn ON t
 
 <br>
 Hardware Requirements and Wiring<br>
-Install a button (tactile switch) between pin A4 on the Blue Pill and ground. <br>
+Install a button (tactile switch) between pin A12 on the Blue Pill and ground. <br>
 <br>
 Setup<br>
 The default makefile is set up to work with an ST-LINK V2 programming dongle under Linux. For other
